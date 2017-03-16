@@ -47,8 +47,8 @@ class @Growlyflash
       html += h.title(@opts.type) if title and @opts.type?
       html += @flash.msg
 
-      @el = ($ '<div>', html: html, class: @class_list().join(' '), role: "alert")
-      @el = @el.appendTo(($ target))
+      @el = ($ '<li>', html: html, class: @class_list().join(' '), role: "alert")
+      @el = @el.prependTo(($ target))
 
       before_show?.call(this)
 
