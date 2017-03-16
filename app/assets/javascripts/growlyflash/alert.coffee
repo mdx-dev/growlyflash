@@ -71,14 +71,7 @@ class @Growlyflash
     close: =>
       @el.fadeOut(=> @el.remove())
 
-    calc_top_offset: ({spacing}) ->
-      amount = _top(@el)
-      (@el.siblings '.growlyflash').each ->
-        amount = Math.max(amount, _top(@) + ($ @).outerHeight() + spacing)
-      return amount
-
     calc_css_position: (css = {}) ->
-      css.top        = "#{@calc_top_offset(@opts)}px"
       css.marginLeft = "-#{@el.outerWidth() / 2}px" if @opts.align is 'center'
       css
 
